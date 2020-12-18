@@ -6,8 +6,8 @@ lein: 2.9.1
 cache:
   directories:
   - $HOME/.m2
-before_script:
-  - if [ "$TRAVIS_ARCH" = "ppc64le" ]; then sudo chmod +x /usr/local/bin/lein ; fi
+before_install:
+  - if [ "$TRAVIS_ARCH" = "ppc64le" ]; then sudo chmod 777 /usr/local/bin/lein ; fi
 script:
   - lein test
   - lein doo node test-build once
